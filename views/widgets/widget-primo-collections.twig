@@ -1,0 +1,52 @@
+<form id="primo-search" class="widget" onsubmit="return SearchCatalog(this)" class="on">
+    <div class="primo-container">
+        <input type="text" size="50%" maxlength="150" name="searcharg" aria-label="Search" placeholder="Search Special Collections">
+        <select name="searchscope" aria-label="Search in">
+            <option value="special" selected="selected">Search in</option>
+            <option value="special">Special Collections</option>
+            <option value="everything">Books, Articles, & More</option>
+            <option value="library">All Items at Williams</option>
+            <option value="reserve">Course Reserve</option>
+        </select>
+        <input type="hidden" name="searchtype" value="any">
+        <button class="primo-submit" id="primo-submit" title="Search">
+            <span class="bts bt-search"></span>
+        </button>
+    </div>
+    <div class="primo-meta primo-search-type cf">
+        <a href="https://librarysearch.williams.edu/primo-explore/search?tab=default_tab&search_scope=everything_scope&sortby=rank&vid=01WIL_SPECIAL&lang=en_US&mode=advanced&offset=0">Advanced Search</a>
+        <a href="https://librarysearch.williams.edu/primo-explore/browse?vid=01WIL_SPECIAL">Browse Search</a>
+        <a class="search-what" href="https://librarysearch.williams.edu/primo-explore/search?vid=01WIL_SPECIAL">What am I searching?</a>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function SearchCatalog(form) {
+        var root = 'https://librarysearch.williams.edu/primo-explore/search?query=';
+        var scope = ''; 
+        var url = '';
+        var arg = form.searcharg.value.replace(/ (and|and not|or|near) $/i, "");
+
+        switch (form.searchscope.value) { 
+            case 'everything':
+                scope = '&tab=default_tab&search_scope=everything_scope&vid=01WIL_SPECIAL&sortby=rank&lang=en_US&pcAvailabiltyMode=true'
+                url = root + 'any,contains,' + encodeURI(arg) + scope;
+                break;
+            case 'library':
+                scope = '&tab=alma_tab&search_scope=alma_scope&vid=01WIL_SPECIAL&lang=en_US&offset=0';
+                url = root + 'any,contains,' + encodeURI(arg) + scope;
+                break;
+            case 'special':
+                scope = '&tab=special_tab&search_scope=special_scope&vid=01WIL_SPECIAL&lang=en_US&offset=0';
+                url = root + 'any,contains,' + encodeURI(arg) + scope;
+                break;
+            case 'reserve':
+                scope = '&tab=course_tab&search_scope=course_scope&vid=01WIL_SPECIAL&lang=en_US&offset=0';
+                url = root + 'any,contains,' + encodeURI(arg) + scope;
+        }
+        
+        location.href = url;
+        return false;
+    }
+
+</script>

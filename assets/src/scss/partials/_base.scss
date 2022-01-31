@@ -1,0 +1,40 @@
+
+.site-banner .header-image {
+   	 height: 328px;
+}
+/*********************
+LARGER MOBILE DEVICES
+*********************/
+@media only screen and (min-width: $mobile_portrait) {
+	.site-banner .header-image {
+	   	 height: 240px;
+	}
+	.home .site-banner .header-image {
+   	 height: 400px;
+  	}
+}
+/*********************
+MOBILE WIDE
+*********************/
+@media only screen and (min-width: $mobile_landscape) {
+
+}
+
+/*********************
+TABLET & SMALL LAPTOPS
+*********************/
+@media only screen and (min-width: $tablet) {
+
+}
+/*********************
+DESKTOP
+*********************/
+@media only screen and (min-width: $desktop) {
+	
+}
+/*********************
+LARGE VIEWING SIZE
+*********************/
+@media only screen and (min-width: $desktop) {
+	
+}

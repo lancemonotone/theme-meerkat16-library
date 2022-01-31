@@ -1,0 +1,258 @@
+.site-banner {
+  #primo-search {
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 3px rgba($black, 0.8);
+    width: 90%;
+    height: 46px;
+    overflow: hidden;
+    @include bullseye(absolute);
+    .primo-container {
+      @include clearfix;
+      height: 47px;
+      //       hide placeholder text on mobile
+      ::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+      }
+      :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+      }
+      ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: transparent;
+      }
+      :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: transparent;
+      }
+      textarea::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+      }
+      textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+      }
+      textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: transparent;
+      }
+      textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: transparent;
+      }
+    }
+    .primo-meta {
+      display: none; //disable on mobile
+      background: linear-gradient(darken($dark_grey, 20%), darken($dark_grey, 10%) 15px);
+      position: absolute;
+      width: 100%;
+      padding: 2px;
+      a {
+        color: $almost_white;
+        padding: 0 5px;
+        display: block;
+        position: relative;
+        margin: 4px;
+        &:hover,
+        &:active {
+          color: $white;
+        }
+      }
+      div {
+        float: left;
+      }
+    }
+    input[name="searcharg"] {
+      border-right-color: $dark_grey;
+      padding: 0.625em 0.4em;
+      width: 60%;
+      float: left;
+      font-size: 1rem;
+    }
+    select[name="searchscope"] {
+      width: 30%;
+      float: left;
+      height: 47px;
+      padding: 0.75em 0.4em;
+      background-image: none;
+      -webkit-appearance: none; //  remove border radius
+      -webkit-border-radius: 0px; //  remove border radius
+      &:focus,
+      &:active {
+        border-right: none;
+      }
+    }
+    button.primo-submit {
+      width: 10%;
+      float: right;
+      font-size: 1rem;
+      padding: 0.8em 0 .45em;
+      background-color: $williams_purple;
+      border: 1px solid $williams_purple;
+      color: $white;
+      position: relative;
+      line-height: 1.6;
+      vertical-align: bottom;
+      &:hover,
+      &:focus {
+        background-color: $dark_purple;
+      }
+    }
+  }
+}
+
+.home-widgets {
+  .lci_chat_load {
+    border: none !important;
+  }
+
+ 
+  //   news widget safari fix
+  #cat_loop_simple-2 {
+    flex: auto;
+  }
+}
+
+table.hours-today {
+  border: none;
+
+  tbody {
+    // 	    specific widget hours overrides
+    tr:nth-child(1) th {
+      font-weight: 600;
+    }
+
+    tr:nth-child(2) th {
+      position: relative;
+
+      &:after {
+        content: "";
+        background: black;
+        position: absolute;
+        top: 8px;
+        left: 11px;
+        height: 60%;
+        width: 1px;
+      }
+
+    }
+    tr:nth-child(3) th {
+      position: relative;
+      &:after {
+        content: "";
+        background: black;
+        position: absolute;
+        top: 10px;
+        left: 11px;
+        height: 60%;
+        width: 1px;
+      }
+    }
+    tr:nth-child(4) {
+      th {
+        position: relative;
+        padding-top: 17px;
+        font-weight: 600;
+      }
+      td {
+        padding-top: 17px;
+      }
+
+    }
+  }
+  // end tbody
+
+  td {
+    vertical-align: top;
+    border: none;
+    padding-left: 0;
+
+    span.s-lc-note {
+      display: block;
+      color: $dark_purple;
+    }
+    span.s-lc-time {
+      font-size: 14px;
+    }
+  }
+  tr.hours-today-row {
+    th, td {
+      text-align: left;
+      background: transparent;
+      border: none;
+      vertical-align: top;
+      &.hours-col-loc {
+        width: 210px;
+      }
+    }
+    &[class*="dep"] {
+      /*background: $grey;*/
+      th, td {
+        font-size: $base-font-size - 2;
+        font-weight: 400;
+        &:first-child {
+          padding-left: 1.3em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $mobile_portrait) {
+
+  .site-banner #primo-search .primo-container {
+    // 		show placeholder text on larger devices
+    ::-webkit-input-placeholder { /* WebKit browsers */
+      color: $grey-blue;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $grey-blue;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $grey-blue;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $grey-blue;
+    }
+    textarea::-webkit-input-placeholder { /* WebKit browsers */
+      color: $grey-blue;
+    }
+    textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $grey-blue;
+    }
+    textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $grey-blue;
+    }
+    textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $grey-blue;
+    }
+  }
+  .site-banner #primo-search {
+    width: 75%;
+    overflow: visible;
+
+    select[name="searchscope"] {
+      background-image: linear-gradient(45deg, transparent 45%, $almost_black 45%),
+      linear-gradient(135deg, $almost_black 65%, transparent 65%),
+      linear-gradient(to right, #ccc, #ccc);
+      &:active,
+      &:focus {
+        background-image: linear-gradient(45deg, $almost_black 50%, transparent 50%),
+        linear-gradient(135deg, transparent 55%, $almost_black 55%),
+        linear-gradient(to right, #ccc, #ccc);
+      }
+    }
+    .primo-meta {
+      display: block;
+      a {
+        float: left;
+        &:not(:nth-child(n + 2)):after {
+          content: "|";
+          color: $white;
+          position: absolute;
+          right: -7px;
+          top: 0;
+        }
+        &.search-what {
+          float: right;
+        }
+      }
+    }
+  }
+}
+
